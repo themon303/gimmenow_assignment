@@ -1,15 +1,15 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-gimmenowassignment-dev-222616-authRole",
-      "UnauthRoleArn": "arn:aws:iam::996545342179:role/amplify-gimmenowassignment-dev-222616-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::996545342179:role/amplify-gimmenowassignment-dev-222616-authRole",
+      "AuthRoleName": "amplify-gimmenowassignment-dev-233115-authRole",
+      "UnauthRoleArn": "arn:aws:iam::996545342179:role/amplify-gimmenowassignment-dev-233115-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::996545342179:role/amplify-gimmenowassignment-dev-233115-authRole",
       "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-gimmenowassignment-dev-222616-deployment",
-      "UnauthRoleName": "amplify-gimmenowassignment-dev-222616-unauthRole",
-      "StackName": "amplify-gimmenowassignment-dev-222616",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:996545342179:stack/amplify-gimmenowassignment-dev-222616/89399c10-5542-11ed-8945-069aeb6fefe6",
-      "AmplifyAppId": "dloo9ye7thxsd"
+      "DeploymentBucketName": "amplify-gimmenowassignment-dev-233115-deployment",
+      "UnauthRoleName": "amplify-gimmenowassignment-dev-233115-unauthRole",
+      "StackName": "amplify-gimmenowassignment-dev-233115",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:996545342179:stack/amplify-gimmenowassignment-dev-233115/9d8b3e90-554b-11ed-9663-061b75aae314",
+      "AmplifyAppId": "d3d9zsjqsw4ite"
     }
   }
 }
