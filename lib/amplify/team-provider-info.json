@@ -10,6 +10,11 @@
       "StackName": "amplify-gimmenowassignment-dev-233115",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:996545342179:stack/amplify-gimmenowassignment-dev-233115/9d8b3e90-554b-11ed-9663-061b75aae314",
       "AmplifyAppId": "d3d9zsjqsw4ite"
+    },
+    "categories": {
+      "auth": {
+        "gimmenowassignmentb87b1d45": {}
+      }
     }
   }
 }
