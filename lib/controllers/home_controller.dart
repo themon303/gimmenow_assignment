@@ -3,6 +3,7 @@ import 'package:flutter_mapbox_navigation/library.dart';
 import 'package:geojson/geojson.dart';
 import 'package:geopoint/geopoint.dart';
 import 'package:get/get.dart';
+import 'package:gimmenow_assignment/amplify_models/UserLocation.dart';
 import 'package:gimmenow_assignment/data/data.dart';
 import 'package:gimmenow_assignment/models/hub.dart';
 import 'package:gimmenow_assignment/utils/utilities.dart';
@@ -21,11 +22,13 @@ class HomeController extends GetxController {
   late bool _serviceEnabled;
   late PermissionStatus _permissionGranted;
   final locationData = Rx<LocationData?>(null);
+  late AuthUser user;
 
   @override
   void onInit() async {
     super.onInit();
     initialize();
+    user = await Amplify.Auth.getCurrentUser();
   }
 
   @override
@@ -56,6 +59,7 @@ class HomeController extends GetxController {
     _location.onLocationChanged.listen((LocationData currentLocation) {
       locationData.value = currentLocation;
       if (currentLocation.latitude != null && currentLocation.longitude != null) {
+        updateUserLocation(currentLocation);
         checkIsInsidePolygon(
           [
             GeoJsonPoint(geoPoint: GeoPoint(latitude: currentLocation.latitude!, longitude: currentLocation.longitude!))
@@ -65,6 +69,42 @@ class HomeController extends GetxController {
     });
 
     _directions = MapBoxNavigation();
+  }
+
+  Future<List<UserLocation>?> readUserLocation() async {
+    try {
+      return await Amplify.DataStore.query(UserLocation.classType, where: UserLocation.USERID.eq(user.userId));
+    } on DataStoreException catch (e) {
+      safePrint('Query failed: $e');
+    }
+    return null;
+  }
+
+  Future<void> updateUserLocation(LocationData currentLocation) async {
+    final oldDataList = await readUserLocation();
+    final oldData = oldDataList!.isNotEmpty ? oldDataList.first : null;
+    UserLocation newData;
+    if (oldData != null) {
+      newData = UserLocation(
+        id: oldData.id,
+        userID: user.userId,
+        previousLat: oldData.currentLat,
+        previousLong: oldData.currentLong,
+        currentLat: currentLocation.latitude!,
+        currentLong: currentLocation.longitude!,
+      );
+      if (oldData.currentLat == newData.currentLat && oldData.currentLong == newData.currentLong) return;
+      await Amplify.DataStore.save(newData);
+    } else {
+      newData = UserLocation(
+        userID: user.userId,
+        previousLat: 0,
+        previousLong: 0,
+        currentLat: currentLocation.latitude!,
+        currentLong: currentLocation.longitude!,
+      );
+      await Amplify.DataStore.save(newData);
+    }
   }
 
   Future<void> checkIsInsidePolygon(List<GeoJsonPoint> points) async {
@@ -98,7 +138,7 @@ class HomeController extends GetxController {
     }
   }
 
-  void updateDestPos(LatLng? pos) {
+  Future<void> updateDestPos(LatLng? pos) async {
     destPos.value = pos;
   }
 

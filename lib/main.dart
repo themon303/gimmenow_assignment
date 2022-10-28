@@ -1,8 +1,10 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
+import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:gimmenow_assignment/amplify_models/ModelProvider.dart';
 import 'package:gimmenow_assignment/screens/home_screen.dart';
 
 import 'amplifyconfiguration.dart';
@@ -29,6 +31,8 @@ class _MyAppState extends State<MyApp> {
     // Add any Amplify plugins you want to use
     final authPlugin = AmplifyAuthCognito();
     await Amplify.addPlugin(authPlugin);
+    final datastorePlugin = AmplifyDataStore(modelProvider: ModelProvider.instance);
+    await Amplify.addPlugin(datastorePlugin);
 
     try {
       await Amplify.configure(amplifyconfig);
