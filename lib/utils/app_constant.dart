@@ -9,5 +9,6 @@ class AppConstants {
 
   static const String mapBoxStyleId = 'cl9r8u4h4000015mvd5t4l3fr';
 
-  static final myLocation = LatLng(-37.883258084328645, 145.0528208930866);
+  static final myLocation = LatLng(-37.886356265069146, 145.06682699972677);
+  static final insidePolygonPos = LatLng(-37.8868640534514, 145.08187974362951);
 }

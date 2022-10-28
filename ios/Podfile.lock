@@ -44,15 +44,48 @@ PODS:
     - Amplify (= 1.28.0)
     - AWSCore (~> 2.27.0)
   - Flutter (1.0.0)
+  - flutter_mapbox_navigation (0.0.20):
+    - Flutter
+    - MapboxNavigation (~> 1.4)
+  - location (0.0.1):
+    - Flutter
+  - Mapbox-iOS-SDK (6.4.1):
+    - MapboxMobileEvents (~> 0.10.12)
+  - MapboxAccounts (2.3.1)
+  - MapboxCommon (9.2.0)
+  - MapboxCoreNavigation (1.4.2):
+    - MapboxAccounts (~> 2.3.0)
+    - MapboxDirections (~> 1.2.0)
+    - MapboxMobileEvents (~> 0.10.2)
+    - MapboxNavigationNative (~> 32.0)
+    - Turf (~> 1.0)
+  - MapboxDirections (1.2.0):
+    - Polyline (~> 5.0)
+    - Turf (~> 1.0)
+  - MapboxMobileEvents (0.10.14)
+  - MapboxNavigation (1.4.2):
+    - Mapbox-iOS-SDK (~> 6.0)
+    - MapboxCoreNavigation (= 1.4.2)
+    - MapboxMobileEvents (~> 0.10.2)
+    - MapboxSpeech (~> 1.0)
+    - Solar (~> 2.1)
+  - MapboxNavigationNative (32.0.0):
+    - MapboxCommon (= 9.2.0)
+  - MapboxSpeech (1.0.0)
   - ObjectMapper (4.2.0)
+  - Polyline (5.0.2)
+  - Solar (2.1.0)
   - SwiftFormat/CLI (0.50.3)
   - SwiftLint (0.48.0)
+  - Turf (1.2.0)
 
 DEPENDENCIES:
   - amplify_auth_cognito_ios (from `.symlinks/plugins/amplify_auth_cognito_ios/ios`)
   - amplify_core (from `.symlinks/plugins/amplify_core/ios`)
   - amplify_flutter_ios (from `.symlinks/plugins/amplify_flutter_ios/ios`)
   - Flutter (from `Flutter`)
+  - flutter_mapbox_navigation (from `.symlinks/plugins/flutter_mapbox_navigation/ios`)
+  - location (from `.symlinks/plugins/location/ios`)
 
 SPEC REPOS:
   trunk:
@@ -64,9 +97,21 @@ SPEC REPOS:
     - AWSCore
     - AWSMobileClient
     - AWSPluginsCore
+    - Mapbox-iOS-SDK
+    - MapboxAccounts
+    - MapboxCommon
+    - MapboxCoreNavigation
+    - MapboxDirections
+    - MapboxMobileEvents
+    - MapboxNavigation
+    - MapboxNavigationNative
+    - MapboxSpeech
     - ObjectMapper
+    - Polyline
+    - Solar
     - SwiftFormat
     - SwiftLint
+    - Turf
 
 EXTERNAL SOURCES:
   amplify_auth_cognito_ios:
@@ -77,6 +122,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/amplify_flutter_ios/ios"
   Flutter:
     :path: Flutter
+  flutter_mapbox_navigation:
+    :path: ".symlinks/plugins/flutter_mapbox_navigation/ios"
+  location:
+    :path: ".symlinks/plugins/location/ios"
 
 SPEC CHECKSUMS:
   Amplify: dfa12fad1609b1388d0b2fb6f99b3140cd942d09
@@ -91,10 +140,24 @@ SPEC CHECKSUMS:
   AWSMobileClient: 6f60d1fb6373e21aaada443dd4d4bf087158614d
   AWSPluginsCore: 7f0f984d787a4fe79d3d52c3d34e1779d1fc9bb8
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_mapbox_navigation: b2d023f58478f5f80242db9b70cc75ee37f42e20
+  location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
+  Mapbox-iOS-SDK: f870f83cbdc7aa4a74afcee143aafb0dae390c82
+  MapboxAccounts: e40ef575df5d8b7ef33d0504ff2d393f4fde0455
+  MapboxCommon: 2c4ef00c10cba35302835423f4d63c6f3dea4bc4
+  MapboxCoreNavigation: fd24751d42a53c2ca4ddebd55f49a11b925f08be
+  MapboxDirections: 383df0cd65784897c2269750a42d9654c832f0ce
+  MapboxMobileEvents: 5a172cc9bbf8ac0e45ba86095cbee685ede248cc
+  MapboxNavigation: b596028515707e1b4b94d22f298a7c7000712e6d
+  MapboxNavigationNative: e811b9beed18c01e4693e29f843d36b4a760fa61
+  MapboxSpeech: 4b3aea42e35d056fae1d7ad847a9fc0f412d911e
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Polyline: fce41d72e1146c41c6d081f7656827226f643dff
+  Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   SwiftFormat: 61cda3819dc3a7d69795ce0430e1e1d53c4a4fb2
   SwiftLint: 284cea64b6187c5d6bd83e9a548a64104d546447
+  Turf: aaa060138b11a8e979a19e6d81091d156a31bc58
 
-PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
+PODFILE CHECKSUM: 69c59ffb175d45ae2f15813acd73550e007cc787
 
 COCOAPODS: 1.11.3
